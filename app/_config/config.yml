@@ -1,0 +1,12 @@
+---
+Name: app-config
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  project: app
+
+# Add trailing slashes to URLs
+SilverStripe\Control\Controller:
+  add_trailing_slash: true
+
+SilverStripe\ORM\:
+  classname_value_remapping: []

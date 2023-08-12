@@ -1,0 +1,6 @@
+---
+Name: app-assets
+---
+# For AWS Lambda, we need to prevent the server to write .htaccess files on read-only filesystem
+SilverStripe\Assets\Flysystem\AssetAdapter:
+  default_server: 'nginx'

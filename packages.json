@@ -1,0 +1,12 @@
+{
+  "package": {
+    "name": "silverstripe/recipe-serverless",
+    "version": "dev-main",
+    "source": {
+      "url": "git@github.com:ssmarco/serverless.git",
+      "type": "git",
+      "reference": "main"
+    },
+    "comment": "composer create-project --repository-url=../serverless/packages.json silverstripe/recipe-serverless . dev-main"
+  }
+}

@@ -1,0 +1,12 @@
+/silverstripe-cache/
+/vendor/
+/themes/simple/
+/_resources/
+/public/_resources/
+/.serverless
+/node_modules/
+/.idea
+.env
+.vercel
+error.log
+silverstripe.log

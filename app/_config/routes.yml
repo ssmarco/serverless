@@ -1,0 +1,16 @@
+---
+Name: app-routes
+After:
+  - '#rootroutes'
+  - '#coreroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    # Homepage
+    '': 'App\Control\AppController'
+    # Catch all rule for all links
+    '/$*': 'App\Control\AppController'
+
+App\Control\AppController:
+  allowed_actions:
+    - 'contact-us'

@@ -1,0 +1,45 @@
+service: ss-app
+
+constructs:
+  website:
+    type: server-side-website
+    assets:
+      '/assets/*': public/assets
+      '/_resources/*': public/_resources
+      '/favicon.ico': public/favicon.ico
+
+provider:
+    name: aws
+    region: ap-southeast-2
+    apiGateway:
+        binaryMediaTypes:
+            - '*/*'
+    environment:
+        SS_BASE_URL: ${construct:website.url}
+        BREF_BINARY_RESPONSES: '1'
+plugins:
+    - ./vendor/bref/bref
+    - serverless-lift
+
+functions:
+    api:
+        handler: public/index.php
+        description: ''
+        runtime: php-82-fpm
+        timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
+        events:
+            - httpApi: '*'
+        environment:
+            SS_ENVIRONMENT_TYPE: 'dev'
+            SS_DATABASE_CLASS: 'SQLite3Database'
+            SS_DATABASE_NAME: 'SS_mysite'
+            SS_SQLITE_DATABASE_PATH: ':memory:'
+            SS_TRUSTED_PROXY_IPS: '*'
+            SS_BYPASS_BUILD_DATABASE: '1'
+
+# Exclude files from deployment
+package:
+    patterns:
+        - '!node_modules/**'
+        - '!tests/**'
+        - '!.env'

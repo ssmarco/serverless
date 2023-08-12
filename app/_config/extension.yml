@@ -1,0 +1,9 @@
+---
+Name: app-extension
+---
+SilverStripe\Control\Controller:
+  extensions:
+    - App\Extension\ControllerExtension
+SilverStripe\ORM\DatabaseAdmin:
+  extensions:
+    - App\Extension\DatabaseAdminExtension
