@@ -61,7 +61,7 @@ class AppController extends Controller
      */
     public function contactUs(HTTPRequest $request): HTTPResponse
     {
-        $this->title = '';
+        $this->title = 'Contact Us';
         $this->summary = '';
 
         return $this->getResponse()

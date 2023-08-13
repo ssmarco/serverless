@@ -10,3 +10,4 @@
 .vercel
 error.log
 silverstripe.log
+.phpunit.result.cache
