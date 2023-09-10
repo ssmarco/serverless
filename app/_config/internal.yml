@@ -1,9 +1,5 @@
 ---
 Name: app-internal
-After:
-  - '#coreroutes'
-Only:
-  envvarset: SS_BYPASS_BUILD_DATABASE
 ---
 SilverStripe\Core\Injector\Injector:
   ZeroDatabase:
@@ -11,14 +7,14 @@ SilverStripe\Core\Injector\Injector:
     properties:
       connector: '%$App\Internal\ZeroConnector'
       schemaManager: '%$App\Internal\ZeroSchemaManager'
-  DevRequestFilter:
-    class: SilverStripe\Control\Middleware\RequestHandlerMiddlewareAdapter
-    properties:
-      RequestHandler: '%$SilverStripe\Dev\DevBuildController'
-      Middlewares:
-        AdminRequestFilterMiddleware: '%$App\Internal\DevRequestFilterMiddleware'
 
-SilverStripe\Control\Director:
-  rules:
-    dev:
-      Controller: '%$DevRequestFilter'
+---
+Name: app-internal-database
+After:
+  - '#coreroutes'
+Only:
+  envvarset: SS_BYPASS_BUILD_DATABASE
+---
+SilverStripe\ORM\DatabaseAdmin:
+  extensions:
+    - App\Extension\DatabaseAdminExtension
