@@ -11,9 +11,9 @@
         "silverstripe/framework": "^6.0",
         "silverstripe/mimevalidator": "^4.0",
         "bref/bref": "^2.0",
-        "composer-plugin-api": "^2"
+        "composer-plugin-api": "^2",
+        "silverstripe/sqlite3": "dev-master"
     },
-    "require-dev": {},
     "config": {
         "process-timeout": 600,
         "allow-plugins": {
